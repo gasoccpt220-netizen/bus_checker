@@ -294,9 +294,28 @@ window.addEventListener('DOMContentLoaded', () => {
   autoImportSheetData();
 });
 
+async function clearSiteCaches() {
+  try {
+    if ('caches' in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((key) => caches.delete(key)));
+    }
+
+    if ('serviceWorker' in navigator) {
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (registration) {
+        await registration.unregister();
+      }
+    }
+  } catch (error) {
+    console.warn('Cache cleanup failed', error);
+  }
+}
+
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {
+  window.addEventListener('load', async () => {
+    await clearSiteCaches();
+    navigator.serviceWorker.register(`/sw.js?v=${Date.now()}`).catch(() => {
       console.warn('Service worker registration failed');
     });
   });
