@@ -301,3 +301,16 @@ if ('serviceWorker' in navigator) {
     });
   });
 }
+
+const appVersion = `${Date.now()}`;
+const cacheBuster = new URLSearchParams(window.location.search);
+if (!cacheBuster.has('v')) {
+  window.history.replaceState({}, '', `${window.location.pathname}?v=${appVersion}${window.location.hash || ''}`);
+}
+
+window.addEventListener('focus', () => {
+  const currentVersion = new URLSearchParams(window.location.search).get('v');
+  if (!currentVersion || currentVersion !== appVersion) {
+    window.location.reload();
+  }
+});
