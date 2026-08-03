@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Run & Bus Tracker</title>
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="card">
+        <div class="top-bar">
+          <h1>Run & Bus Tracker</h1>
+        </div>
+        <p>Enter a run number to check the current bus number.</p>
+
+        <form id="tracker-form">
+          <label for="run-no">Run No.</label>
+          <input id="run-no" name="runNo" type="text" inputmode="numeric" placeholder="Enter run number" required />
+
+          <div class="actions">
+            <button type="submit">Check</button>
+            <button type="button" id="clear-btn">Clear</button>
+          </div>
+        </form>
+
+        <form id="import-form" class="hidden">
+          <label for="sheet-url">Spreadsheet link</label>
+          <input id="sheet-url" name="sheetUrl" type="url" value="https://docs.google.com/spreadsheets/d/1d5WP8hu6oCfTmx3PTfyqMMMiNreTvihK/edit?gid=1533892948#gid=1533892948" placeholder="Paste spreadsheet link" required />
+          <p class="hint">The app reads Column G as Run No. and Column I as Vehicle No. from the live Google Sheets source.</p>
+
+          <div class="actions">
+            <button type="submit">Import data</button>
+          </div>
+        </form>
+
+        <section id="user-view">
+          <h2 class="display-title">Vehicle Number</h2>
+          <div class="display-box">
+            <p><strong>Run No.:</strong> <span id="view-run" class="result-value result-run">—</span></p>
+            <p><strong>Vehicle No.:</strong> <span id="view-bus" class="result-value result-bus">—</span></p>
+          </div>
+        </section>
+
+        <div id="status" class="status hidden" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
