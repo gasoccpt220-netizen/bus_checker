@@ -12,35 +12,55 @@
     <main class="app-shell">
       <section class="card">
         <div class="top-bar">
-          <h1>Run & Bus Tracker</h1>
+          <h1 data-i18n="title">Run & Bus Tracker</h1>
+          <label class="language-wrap" for="language-select">
+            <span class="sr-only">Language</span>
+            <select id="language-select" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="zh">中文（简体）</option>
+            </select>
+          </label>
         </div>
-        <p>Enter a run number to check the current bus number.</p>
+        <p data-i18n="subtitle">Enter a run number to check the current bus number.</p>
 
         <form id="tracker-form">
-          <label for="run-no">Run No.</label>
-          <input id="run-no" name="runNo" type="text" inputmode="numeric" placeholder="Enter run number" required />
+          <label for="run-no" data-i18n="runNoLabel">Run No.</label>
+          <input
+            id="run-no"
+            name="runNo"
+            type="text"
+            inputmode="numeric"
+            pattern="[0-9]{4}"
+            min="0000"
+            max="9999"
+            minlength="4"
+            maxlength="4"
+            placeholder="0000"
+            title="Enter a 4-digit run number between 0000 and 9999"
+            required
+          />
 
           <div class="actions">
-            <button type="submit">Check</button>
-            <button type="button" id="clear-btn">Clear</button>
+            <button type="submit" data-i18n="checkButton">Check</button>
+            <button type="button" id="clear-btn" data-i18n="clearButton">Clear</button>
           </div>
         </form>
 
         <form id="import-form" class="hidden">
-          <label for="sheet-url">Spreadsheet link</label>
+          <label for="sheet-url" data-i18n="sheetUrlLabel">Spreadsheet link</label>
           <input id="sheet-url" name="sheetUrl" type="url" value="https://docs.google.com/spreadsheets/d/1d5WP8hu6oCfTmx3PTfyqMMMiNreTvihK/edit?gid=1533892948#gid=1533892948" placeholder="Paste spreadsheet link" required />
-          <p class="hint">The app reads Column G as Run No. and Column I as Vehicle No. from the live Google Sheets source.</p>
+          <p class="hint" data-i18n="sheetHint">The app reads Column G as Run No. and Column I as Vehicle No. from the live Google Sheets source.</p>
 
           <div class="actions">
-            <button type="submit">Import data</button>
+            <button type="submit" data-i18n="importButton">Import data</button>
           </div>
         </form>
 
         <section id="user-view">
-          <h2 class="display-title">Vehicle Number</h2>
+          <h2 class="display-title" data-i18n="vehicleNumberTitle">Vehicle Number</h2>
           <div class="display-box">
-            <p><strong>Run No.:</strong> <span id="view-run" class="result-value result-run">—</span></p>
-            <p><strong>Vehicle No.:</strong> <span id="view-bus" class="result-value result-bus">—</span></p>
+            <p><strong data-i18n="runNoLabelInline">Run No.:</strong> <span id="view-run" class="result-value result-run">—</span></p>
+            <p><strong data-i18n="vehicleNoLabelInline">Vehicle No.:</strong> <span id="view-bus" class="result-value result-bus">—</span></p>
           </div>
         </section>
 
