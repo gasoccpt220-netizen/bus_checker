@@ -12,17 +12,20 @@
     <link rel="stylesheet" href="/styles.css?v=1" />
   </head>
   <body>
+    <div class="page-topbar">
+      <label class="language-wrap" for="language-select">
+        <span class="sr-only">Language</span>
+        <select id="language-select" aria-label="Language selector">
+          <option value="en">English</option>
+          <option value="zh">中文（简体）</option>
+        </select>
+      </label>
+    </div>
+
     <main class="app-shell">
       <section class="card">
         <div class="top-bar">
           <h1 data-i18n="title">Run & Bus Tracker</h1>
-          <label class="language-wrap" for="language-select">
-            <span class="sr-only">Language</span>
-            <select id="language-select" aria-label="Language selector">
-              <option value="en">English</option>
-              <option value="zh">中文（简体）</option>
-            </select>
-          </label>
         </div>
         <p data-i18n="subtitle">Enter a run number to check the current bus number.</p>
 

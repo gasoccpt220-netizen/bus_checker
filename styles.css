@@ -18,6 +18,13 @@ body {
   background: linear-gradient(120deg, #f8fbff 0%, #eef4ff 45%, #f8fafc 100%);
 }
 
+.page-topbar {
+  width: min(100%, 540px);
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 auto 0.75rem;
+}
+
 .app-shell {
   width: min(100%, 500px);
 }
