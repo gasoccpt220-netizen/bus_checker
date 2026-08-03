@@ -76,7 +76,7 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 1.55rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #0f172a;
 }
@@ -96,13 +96,15 @@ form {
 label {
   font-weight: 700;
   color: #334155;
+  font-size: 1.3rem;
 }
 
 input {
-  padding: 0.95rem 1rem;
+  padding: 1.2rem 1.2rem;
   border: 1px solid #cbd5e1;
   border-radius: 12px;
-  font-size: 1rem;
+  font-size: 1.6rem;
+  min-height: 3.6rem;
   background: #f8fafc;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -117,14 +119,20 @@ input:focus {
   display: flex;
   gap: 0.75rem;
   margin-top: 0.2rem;
+  margin-bottom: 0.9rem;
+}
+
+#user-view {
+  margin-top: 0.25rem;
 }
 
 button {
   border: none;
   border-radius: 12px;
-  padding: 0.9rem 1rem;
-  font-size: 1rem;
+  padding: 1.1rem 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
+  min-height: 3.4rem;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
 }
@@ -159,12 +167,21 @@ button[type="submit"] {
 }
 
 .display-box {
-  padding: 1rem 1.1rem;
+  padding: 1.25rem 1rem;
   border-radius: 16px;
   background: linear-gradient(135deg, #f8fafc, #f1f5f9);
   border: 1px solid #dbe3f0;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   margin-top: 0.4rem;
+  text-align: center;
+}
+
+.result-display {
+  margin: 0;
+}
+
+.hidden-inline {
+  display: none;
 }
 
 .display-box.result-found {
@@ -181,8 +198,11 @@ button[type="submit"] {
 
 .result-value {
   font-weight: 800;
-  font-size: 1.7rem;
-  line-height: 1.3;
+  font-size: clamp(2.1rem, 7vw, 3.5rem);
+  line-height: 1.2;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.04em;
 }
 
 .result-value.result-found {
@@ -201,14 +221,15 @@ button[type="submit"] {
 
 .status {
   margin-top: 1rem;
-  padding: 0.9rem 1rem;
+  padding: 1.2rem 1rem;
   border-radius: 12px;
   background: #fef2f2;
   color: #991b1b;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.6vw, 2.4rem);
   text-align: center;
   border: 1px solid #fecaca;
-  min-height: 3rem;
+  min-height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
